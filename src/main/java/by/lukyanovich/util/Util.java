@@ -19,6 +19,9 @@ public class Util {
     public static final String carsDataFileName = "src\\main\\resources\\cars.json";
     public static final String flowersDataFileName = "src\\main\\resources\\flowers.json";
     public static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+    public static final List<String> dayOfWeek =
+            List.of("Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday" );
     public static List<Subscriber> getSubscribers() throws IOException {
         return newMapper().readValue(new File(subscriberDataFileName), new TypeReference<>() {
         });

@@ -7,21 +7,23 @@ public class Subscriber {
 
     private int id;
     private String firstName;
-    private String typeOfBoughtSubscription;
-    private List<String> days;
     private String costOfSubscription;
     private int quantityOfClasses;
+    private String typeOfBoughtSubscription;
+    private List<String> days;
 
     public Subscriber() {
     }
-    public Subscriber(int id, String firstName, String typeOfBoughtSubscription, List<String> days, String costOfSubscription, int quantityOfClasses) {
+
+    public Subscriber(int id, String firstName, String costOfSubscription, int quantityOfClasses, String typeOfBoughtSubscription, List<String> days) {
         this.id = id;
         this.firstName = firstName;
-        this.typeOfBoughtSubscription = typeOfBoughtSubscription;
-        this.days = days;
         this.costOfSubscription = costOfSubscription;
         this.quantityOfClasses = quantityOfClasses;
+        this.typeOfBoughtSubscription = typeOfBoughtSubscription;
+        this.days = days;
     }
+
     public int getId() {
         return id;
     }
@@ -74,12 +76,12 @@ public class Subscriber {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Subscriber that = (Subscriber) o;
-        return id == that.id && Objects.equals(firstName, that.firstName) && typeOfBoughtSubscription.equals(that.typeOfBoughtSubscription) && Objects.equals(days, that.days);
+        return id == that.id && quantityOfClasses == that.quantityOfClasses && Objects.equals(firstName, that.firstName) && Objects.equals(costOfSubscription, that.costOfSubscription) && typeOfBoughtSubscription.equals(that.typeOfBoughtSubscription) && Objects.equals(days, that.days);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, typeOfBoughtSubscription, days);
+        return Objects.hash(id, firstName, costOfSubscription, quantityOfClasses, typeOfBoughtSubscription, days);
     }
 
     @Override
@@ -87,6 +89,8 @@ public class Subscriber {
         return "Subscriber{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
+                ", costOfSubscription='" + costOfSubscription + '\'' +
+                ", quantityOfClasses=" + quantityOfClasses +
                 ", typeOfBoughtSubscription='" + typeOfBoughtSubscription + '\'' +
                 ", days=" + days +
                 '}';

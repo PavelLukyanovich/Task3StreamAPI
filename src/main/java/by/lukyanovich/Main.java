@@ -9,25 +9,27 @@ import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        task1();
-        task2();
-        task3();
-        task4();
-        task5();
-        task6();
-        task7();
-        task8();
-        task9();
-        task10();
-        task11();
-        task12();
-        task13();
-        task14();
-        task15();
+//        task1();
+//        task2();
+//        task3();
+//        task4();
+//        task5();
+//        task6();
+//        task7();
+//        task8();
+//        task9();
+//        task10();
+//        task11();
+//        task12();
+//        task13();
+//        task14();
+//        task15();
         task16();
     }
 
@@ -342,8 +344,34 @@ public class Main {
     private static void task16() throws IOException {
         List<Subscriber> subscribers = Util.getSubscribers();
 
-        subscribers.stream()
+        int quantitySubscribersSubscribedGroupClasses = subscribers.stream()
                 .filter(subscriber -> "group".equals(subscriber.getTypeOfBoughtSubscription()))
+                .toList()
+                .size();
+        System.out.println("Всего абонентов купиших абонементы 3-го типа: - " + quantitySubscribersSubscribedGroupClasses);
+
+        int howManyComesOnMonday = subscribers.stream()
+                .filter(subscriber -> subscriber.getDays().contains("Monday"))
+                .toList()
+                .size();
+        System.out.println("Количество человек приходящих по понедельникам: - " + howManyComesOnMonday);
+
+        int sumOfClasses = subscribers.stream()
+                .mapToInt(Subscriber::getQuantityOfClasses)
+                .sum();
+        System.out.println("Общее количество занятий по проданным абонементам: - " + sumOfClasses);
+
+        int costOfSwimAndSaunaSubscription = subscribers.stream()
+                .filter(subscriber -> "swimAndSauna".equals(subscriber.getTypeOfBoughtSubscription()))
+                .mapToInt(value -> Integer.parseInt(value.getCostOfSubscription()))
+                .sum();
+        System.out.println("Продано абонементов 2-го типа: - " + costOfSwimAndSaunaSubscription);
+
+        int costOfAllSaleSubscriptions = subscribers.stream()
+                .mapToInt(value -> Integer.parseInt(value.getCostOfSubscription()))
+                .sum();
+        System.out.println("Всего продано абонементов: - " + costOfAllSaleSubscriptions);
+
 
     }
 }
