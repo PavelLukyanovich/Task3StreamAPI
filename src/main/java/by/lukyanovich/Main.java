@@ -393,8 +393,6 @@ public class Main {
                 .sum();
         System.out.println("Общая выручка за продажу всех абонементов: - " + costOfAllSaleSubscriptions);
 
-
-
     }
 
 }

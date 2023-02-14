@@ -27,6 +27,7 @@ public class Subscriber {
     public int getId() {
         return id;
     }
+
     public int getQuantityOfClasses() {
         return quantityOfClasses;
     }
