@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class Util {
+    public static final String subscriber = "src\\main\\resources\\subscribers.json"
     public static final String animalsDataFileName = "src\\main\\resources\\animals.json";
     public static final String recruitsDataFileName = "src\\main\\resources\\recruits.json";
     public static final String carsDataFileName = "src\\main\\resources\\cars.json";
