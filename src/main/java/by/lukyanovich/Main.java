@@ -9,7 +9,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -361,17 +362,39 @@ public class Main {
                 .sum();
         System.out.println("Общее количество занятий по проданным абонементам: - " + sumOfClasses);
 
+        subscribers.stream()
+                .filter(subscriber -> "swim".equals(subscriber.getTypeOfBoughtSubscription()))
+                .filter(subscriber -> subscriber.getDays().contains("Friday"))
+                .map(Subscriber::getFirstName)
+                .forEach(System.out::println);
+
+        List<String> dayList = subscribers.stream()
+                .map(Subscriber::getDays)
+                .toList()
+                .stream().flatMap(List::stream)
+                .toList();
+
+        java.util.Map<Integer, String> allIncoming = dayList.stream()
+                .collect(Collectors.toMap(String::length, Function.identity()));
+
+        Optional<String> mostIncomingDay = allIncoming.entrySet().stream()
+                .max(java.util.Map.Entry.comparingByKey())
+                .map(java.util.Map.Entry::getValue);
+        System.out.println("Самый загруженный день: - " + mostIncomingDay);
+
         int costOfSwimAndSaunaSubscription = subscribers.stream()
                 .filter(subscriber -> "swimAndSauna".equals(subscriber.getTypeOfBoughtSubscription()))
                 .mapToInt(value -> Integer.parseInt(value.getCostOfSubscription()))
                 .sum();
-        System.out.println("Продано абонементов 2-го типа: - " + costOfSwimAndSaunaSubscription);
+        System.out.println("Выручка за продажу абонементов 2-го типа: - " + costOfSwimAndSaunaSubscription);
 
         int costOfAllSaleSubscriptions = subscribers.stream()
                 .mapToInt(value -> Integer.parseInt(value.getCostOfSubscription()))
                 .sum();
-        System.out.println("Всего продано абонементов: - " + costOfAllSaleSubscriptions);
+        System.out.println("Общая выручка за продажу всех абонементов: - " + costOfAllSaleSubscriptions);
+
 
 
     }
+
 }
