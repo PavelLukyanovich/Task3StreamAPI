@@ -28,6 +28,7 @@ public class Main {
         task13();
         task14();
         task15();
+        task16();
     }
 
     private static void task1() throws IOException {
@@ -336,5 +337,13 @@ public class Main {
             totalPrice += calculationPriceAndPriceConsumption(f);
         }
         return totalPrice;
+    }
+
+    private static void task16() throws IOException {
+        List<Subscriber> subscribers = Util.getSubscribers();
+
+        subscribers.stream()
+                .filter(subscriber -> "group".equals(subscriber.getTypeOfBoughtSubscription()))
+
     }
 }

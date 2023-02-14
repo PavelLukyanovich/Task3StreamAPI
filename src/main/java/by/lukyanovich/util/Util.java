@@ -1,10 +1,6 @@
 package by.lukyanovich.util;
 
-import by.lukyanovich.model.Animal;
-import by.lukyanovich.model.Car;
-import by.lukyanovich.model.Flower;
-import by.lukyanovich.model.House;
-import by.lukyanovich.model.Person;
+import by.lukyanovich.model.*;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,12 +13,16 @@ import java.util.List;
 import java.util.Locale;
 
 public class Util {
-    public static final String subscriber = "src\\main\\resources\\subscribers.json"
+    public static final String subscriberDataFileName = "src\\main\\resources\\subscribers.json";
     public static final String animalsDataFileName = "src\\main\\resources\\animals.json";
     public static final String recruitsDataFileName = "src\\main\\resources\\recruits.json";
     public static final String carsDataFileName = "src\\main\\resources\\cars.json";
     public static final String flowersDataFileName = "src\\main\\resources\\flowers.json";
     public static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    public static List<Subscriber> getSubscribers() throws IOException {
+        return newMapper().readValue(new File(subscriberDataFileName), new TypeReference<>() {
+        });
+    }
 
     public static List<Animal> getAnimals() throws IOException {
         return newMapper().readValue(new File(animalsDataFileName), new TypeReference<>() {
