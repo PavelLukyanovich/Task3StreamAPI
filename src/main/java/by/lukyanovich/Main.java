@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -349,49 +350,55 @@ public class Main {
                 .filter(subscriber -> "group".equals(subscriber.getTypeOfBoughtSubscription()))
                 .toList()
                 .size();
-        System.out.println("Всего абонентов купиших абонементы 3-го типа: - " + quantitySubscribersSubscribedGroupClasses);
+        System.out.println("Количество абонентов купивших абонемент 3-го типа: - " + quantitySubscribersSubscribedGroupClasses);
+
 
         int howManyComesOnMonday = subscribers.stream()
                 .filter(subscriber -> subscriber.getDays().contains("Monday"))
                 .toList()
                 .size();
-        System.out.println("Количество человек приходящих по понедельникам: - " + howManyComesOnMonday);
+        System.out.println("Количество абонентов приходящих в понедельник: - " + howManyComesOnMonday);
+
 
         int sumOfClasses = subscribers.stream()
                 .mapToInt(Subscriber::getQuantityOfClasses)
                 .sum();
-        System.out.println("Общее количество занятий по проданным абонементам: - " + sumOfClasses);
+        System.out.println("Количество занятий по всем проданным абонементам: - " + sumOfClasses);
 
-        subscribers.stream()
-                .filter(subscriber -> "swim".equals(subscriber.getTypeOfBoughtSubscription()))
-                .filter(subscriber -> subscriber.getDays().contains("Friday"))
-                .map(Subscriber::getFirstName)
-                .forEach(System.out::println);
 
-        List<String> dayList = subscribers.stream()
-                .map(Subscriber::getDays)
-                .toList()
-                .stream().flatMap(List::stream)
-                .toList();
+//        subscribers.stream()
+//                .filter(subscriber -> "swim".equals(subscriber.getTypeOfBoughtSubscription()))
+//                .filter(subscriber -> subscriber.getDays().contains("Friday"))
+//                .map(Subscriber::getFirstName)
+//                .forEach(System.out::println);
+//
+//        List<String> dayList = subscribers.stream()
+//                .map(Subscriber::getDays)
+//                .toList()
+//                .stream().flatMap(List::stream)
+//                .toList();
 
-        java.util.Map<Integer, String> allIncoming = dayList.stream()
-                .collect(Collectors.toMap(String::length, Function.identity()));
+//        Map<Integer, String> allIncoming = dayList.stream()
+//                .collect(Collectors.toMap(String::length), Function.identity()); //--------length----???????
+//
+//        Optional<String> mostIncomingDay = allIncoming.entrySet().stream()        Пока не могу запустить(
+//                .max(Map.Entry.comparingByKey())
+//                .map(Map.Entry::getValue);
+//        System.out.println(mostIncomingDay);
 
-        Optional<String> mostIncomingDay = allIncoming.entrySet().stream()
-                .max(java.util.Map.Entry.comparingByKey())
-                .map(java.util.Map.Entry::getValue);
-        System.out.println("Самый загруженный день: - " + mostIncomingDay);
 
         int costOfSwimAndSaunaSubscription = subscribers.stream()
                 .filter(subscriber -> "swimAndSauna".equals(subscriber.getTypeOfBoughtSubscription()))
                 .mapToInt(value -> Integer.parseInt(value.getCostOfSubscription()))
                 .sum();
-        System.out.println("Выручка за продажу абонементов 2-го типа: - " + costOfSwimAndSaunaSubscription);
+        System.out.println("Выручка за абонементы 2-го типа: - " + costOfSwimAndSaunaSubscription);
+
 
         int costOfAllSaleSubscriptions = subscribers.stream()
                 .mapToInt(value -> Integer.parseInt(value.getCostOfSubscription()))
                 .sum();
-        System.out.println("Общая выручка за продажу всех абонементов: - " + costOfAllSaleSubscriptions);
+        System.out.println("Выручка за все проданные абонементы: - " + costOfAllSaleSubscriptions);
+
 
     }
 
