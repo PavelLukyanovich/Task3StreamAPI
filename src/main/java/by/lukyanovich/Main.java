@@ -375,8 +375,9 @@ public class Main {
                 .stream().flatMap(List::stream)
                 .toList();
 
-        Map<Integer, Days> allIncoming = dayList.stream()
-                .collect(Collectors.toMap(Days::hashCode, Function.identity(), (days, days2) -> days));
+        Map<String, Days> allIncoming = dayList.stream()
+                .collect(Collectors.toMap(Days::name, Function.identity(), (days, days2) -> days));
+
 
         Optional<Days> mostIncomingDay = allIncoming.entrySet().stream()
                 .max(Map.Entry.comparingByKey())
