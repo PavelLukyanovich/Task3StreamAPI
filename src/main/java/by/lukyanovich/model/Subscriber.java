@@ -10,12 +10,12 @@ public class Subscriber {
     private String costOfSubscription;
     private int quantityOfClasses;
     private String typeOfBoughtSubscription;
-    private List<String> days;
+    private List<Days> days;
 
     public Subscriber() {
     }
 
-    public Subscriber(int id, String firstName, String costOfSubscription, int quantityOfClasses, String typeOfBoughtSubscription, List<String> days) {
+    public Subscriber(int id, String firstName, String costOfSubscription, int quantityOfClasses, String typeOfBoughtSubscription, List<Days> days) {
         this.id = id;
         this.firstName = firstName;
         this.costOfSubscription = costOfSubscription;
@@ -56,11 +56,11 @@ public class Subscriber {
         this.typeOfBoughtSubscription = typeOfBoughtSubscription;
     }
 
-    public List<String> getDays() {
+    public List<Days> getDays() {
         return days;
     }
 
-    public void setDays(List<String> days) {
+    public void setDays(List<Days> days) {
         this.days = days;
     }
 
