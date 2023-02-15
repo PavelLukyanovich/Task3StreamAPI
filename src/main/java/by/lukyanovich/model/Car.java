@@ -91,14 +91,14 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-            "id=" + id +
-            ", vin='" + vin + '\'' +
-            ", carMake='" + carMake + '\'' +
-            ", carModel='" + carModel + '\'' +
-            ", releaseYear=" + releaseYear +
-            ", color='" + color + '\'' +
-            ", mass=" + mass +
-            ", price=" + price +
-            '}';
+                "id=" + id +
+                ", vin='" + vin + '\'' +
+                ", carMake='" + carMake + '\'' +
+                ", carModel='" + carModel + '\'' +
+                ", releaseYear=" + releaseYear +
+                ", color='" + color + '\'' +
+                ", mass=" + mass +
+                ", price=" + price +
+                '}';
     }
 }

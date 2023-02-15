@@ -10,8 +10,10 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import static by.lukyanovich.model.Days.FRIDAY;
 import static by.lukyanovich.model.Days.MONDAY;
+
 public class Main {
     public static void main(String[] args) throws IOException {
         task1();
@@ -232,7 +234,7 @@ public class Main {
                 .toList();
 
         List<Car> kazahstanCarsGmcDodge = filteredCars.stream()
-                .filter(car -> kazahstanConditionCars.contains(car.getCarModel()))
+                .filter(car -> kazahstanConditionCars.contains(car.getCarMake()))
                 .toList();
 
         List<Car> kazahstanCars = Stream.concat(kazahstanCarsBlackLargeMass.stream(), kazahstanCarsGmcDodge.stream()).toList();

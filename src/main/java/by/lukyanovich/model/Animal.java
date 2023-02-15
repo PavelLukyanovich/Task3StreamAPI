@@ -11,7 +11,8 @@ public class Animal {
 
     private String gender;
 
-    public Animal() {}
+    public Animal() {
+    }
 
     public Animal(int id, String bread, int age, String origin, String gender) {
         this.id = id;
@@ -64,6 +65,6 @@ public class Animal {
     @Override
     public String toString() {
         return "Animal{id=" + id + ", bread='" + bread + "', age=" + age + ", origin='" + origin + "', gender='"
-            + gender +  "'}";
+                + gender + "'}";
     }
 }

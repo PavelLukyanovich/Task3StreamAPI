@@ -94,13 +94,13 @@ public class Flower {
     @Override
     public String toString() {
         return "Flower{" +
-            "id=" + id +
-            ", commonName='" + commonName + '\'' +
-            ", plantFamily='" + plantFamily + '\'' +
-            ", waterConsumptionPerDay=" + waterConsumptionPerDay +
-            ", shadePreferred=" + shadePreferred +
-            ", origin='" + origin + '\'' +
-            ", price=" + price +
-            ", flowerVaseMaterial=" + flowerVaseMaterial + '}';
+                "id=" + id +
+                ", commonName='" + commonName + '\'' +
+                ", plantFamily='" + plantFamily + '\'' +
+                ", waterConsumptionPerDay=" + waterConsumptionPerDay +
+                ", shadePreferred=" + shadePreferred +
+                ", origin='" + origin + '\'' +
+                ", price=" + price +
+                ", flowerVaseMaterial=" + flowerVaseMaterial + '}';
     }
 }

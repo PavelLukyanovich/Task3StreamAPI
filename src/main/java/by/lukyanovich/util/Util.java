@@ -21,7 +21,8 @@ public class Util {
     public static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
     public static final List<String> dayOfWeek =
-            List.of("Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday" );
+            List.of("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+
     public static List<Subscriber> getSubscribers() throws IOException {
         return newMapper().readValue(new File(subscriberDataFileName), new TypeReference<>() {
         });
@@ -50,17 +51,17 @@ public class Util {
     public static List<House> getHouses() throws IOException {
         List<Person> personList = getPersons();
         return List.of(
-            new House(1, "Hospital", personList.subList(0, 40)),
-            new House(2, "Civil building", personList.subList(41, 141)),
-            new House(3, "Civil building", personList.subList(142, 200)),
-            new House(4, "Civil building", personList.subList(201, 299)),
-            new House(5, "Civil building", personList.subList(300, 399)),
-            new House(6, "Civil building", personList.subList(400, 499)),
-            new House(7, "Civil building", personList.subList(500, 599)),
-            new House(8, "Civil building", personList.subList(600, 699)),
-            new House(9, "Civil building", personList.subList(700, 799)),
-            new House(9, "Civil building", personList.subList(800, 899)),
-            new House(9, "Civil building", personList.subList(900, 999))
+                new House(1, "Hospital", personList.subList(0, 40)),
+                new House(2, "Civil building", personList.subList(41, 141)),
+                new House(3, "Civil building", personList.subList(142, 200)),
+                new House(4, "Civil building", personList.subList(201, 299)),
+                new House(5, "Civil building", personList.subList(300, 399)),
+                new House(6, "Civil building", personList.subList(400, 499)),
+                new House(7, "Civil building", personList.subList(500, 599)),
+                new House(8, "Civil building", personList.subList(600, 699)),
+                new House(9, "Civil building", personList.subList(700, 799)),
+                new House(9, "Civil building", personList.subList(800, 899)),
+                new House(9, "Civil building", personList.subList(900, 999))
         );
     }
 
